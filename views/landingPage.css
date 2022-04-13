@@ -5,113 +5,47 @@
     transform: translateX(-50%);
 }
 
-header {
-	position:relative;
-	left:0;
-	top:0;
-	width:100%;
-	min-height:120px;
-	padding:50px 0;
-	color:#fff;
-	    background: #383838 url(https://www.athenadesignstudio.com/plugins/switch/images/bg.jpg) no-repeat center center;
-	margin-bottom:30px
+#title-app {
+    color: aliceblue;
+    font-size: 20px;
+    width: 90px;
 }
 
-@charset "utf-8";
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900|Open Sans:400,600,800');
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-div,
-input,
-p,
-a {
-    font-family: "Open Sans";
-    margin: 0px;
+:root {
+    --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
+  }
+  
+  body {
+    background: rgb(14, 13, 13) !important;
+  }
+  
+  .card {
+    background: rgb(39, 38, 38);
+    border: 1px solid #964e4e;
+    color: rgba(250, 250, 250, 0.8);
+    margin-bottom: 2rem;
+  }
+  
+  .btn {
+    border: 5px solid;
+    border-image-slice: 1;
+    background: var(--gradient) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    border-image-source:  var(--gradient) !important; 
+    text-decoration: none;
+    transition: all .1s ease;
+  }
+  
+  .btn:hover, .btn:focus {
+        background: var(--gradient) !important;
+    -webkit-background-clip: none !important;
+    -webkit-text-fill-color: #fff !important;
+    border: 5px solid #fff !important; 
+    box-shadow: #222 1px 0 10px;
+    text-decoration: underline;
+  }
+
+  img{
+    height:300px;
 }
-
-a,
-a:hover,
-a:focus {
-    color: inherit;
-}
-
-body {
-    background-color: #ffffff;
-}
-
-
-.profile-card-2 {
-    max-width: 300px;
-    background-color: #FFF;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
-    background-position: center;
-    overflow: hidden;
-    position: relative;
-    margin: 10px auto;
-    cursor: pointer;
-    border-radius: 10px;
-}
-
-.profile-card-2 img {
-    transition: all linear 0.25s;
-}
-
-.profile-card-2 .profile-name {
-    position: absolute;
-    left: 30px;
-    bottom: 70px;
-    font-size: 30px;
-    color: #FFF;
-    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-    font-weight: bold;
-    transition: all linear 0.25s;
-}
-
-.profile-card-2 .profile-icons {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    color: #FFF;
-    transition: all linear 0.25s;
-}
-
-.profile-card-2 .profile-username {
-    position: absolute;
-    bottom: 50px;
-    left: 30px;
-    color: #FFF;
-    font-size: 13px;
-    transition: all linear 0.25s;
-}
-
-.profile-card-2 .profile-icons .fa {
-    margin: 5px;
-}
-
-.profile-card-2:hover img {
-    filter: grayscale(100%);
-}
-
-.profile-card-2:hover .profile-name {
-    bottom: 80px;
-}
-
-.profile-card-2:hover .profile-username {
-    bottom: 60px;
-}
-
-.profile-card-2:hover .profile-icons {
-    right: 40px;
-}
-
-#card-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
