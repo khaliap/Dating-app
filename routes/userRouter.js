@@ -3,7 +3,7 @@ const {getAllUsers} = require('../controller/userController')
 
 router.get('/users/', getAllUsers)
 router.get('/users/:id')
-router.post('/users')
+router.post('/signup')
 router.patch('/users/:id')
 router.delete('/users/:id')
 

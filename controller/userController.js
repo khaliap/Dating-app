@@ -12,8 +12,18 @@ async function getAllUsers(req,res){
     }
  
 }
+async function createUserLogin (req, res){
+const email = req.body
+const password = req.body
+if(!email && password){
+    return res.status(400).json({
+        message: 'Email and password are required'
+    })
+}
+}
 
 
 module.exports = {
-    getAllUsers
+    getAllUsers,
+    createUserLogin
 }
