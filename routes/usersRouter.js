@@ -17,7 +17,7 @@ router.post("/signup", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     const sql =
-      "insert into login (name, email, password) values ($1, $2, $3) returning *";
+      "insert into users (name, email, password) values ($1, $2, $3) returning *";
 
     const user = await query(sql, [name, email, hashedPassword]);
 
@@ -27,6 +27,7 @@ router.post("/signup", async (req, res) => {
       token,
     });
   } catch (err) {
+    console.log(err.message)
     res.status(500).json({
       message: err.message,
     });
@@ -38,7 +39,7 @@ router.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
     const user = await (
-      await query("select * from login where email = $1", [email])
+      await query("select * from users where email = $1", [email])
     ).rows[0];
 
     if (!user) {

@@ -3,8 +3,8 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-    return knex.schema.createTable('Intrest',(table)=>{
-        table.integer('intrest_id').increments
+    return knex.schema.createTable('interest',(table)=>{
+        table.increments('interest_id')
         table.boolean('sports')
         table.boolean('shopping')
         table.boolean('dancing')
@@ -21,5 +21,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-    return knex.schema.dropTable('Intrest')
+    return knex.schema.dropTable('interest')
 };

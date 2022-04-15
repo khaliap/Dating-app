@@ -3,10 +3,10 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-    return knex.schema.createTable('Chat',(table)=>{
-        table.integer('chat_id').increments
-        table.integer('user_id').increments
-        table.string('Message').notNullable
+    return knex.schema.createTable('chat',(table)=>{
+        table.integer('chat_id')
+        table.integer('user_id')
+        table.string('message').notNullable()
     })
 };
 
@@ -15,5 +15,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-    return knex.schema.dropTable('Chat')
+    return knex.schema.dropTable('chat')
 };
