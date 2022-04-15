@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="userLogin.css">
-  
+	<script
+	src="https://kit.fontawesome.com/9f2d14ff15.js"
+	crossorigin="anonymous"
+  ></script>
 
 </head>
 <body>
@@ -16,31 +19,19 @@
 
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="./userSignUp.html">
+		<form id="sing-up-form" action="./userSignUp.html">
 			<h1>Create Account</h1>
-			<!-- <div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div> -->
-			<!-- <span>or use your email for registration</span> -->
-			<input type="text" placeholder="Name" required/>
-			<input type="email" placeholder="Email" required />
-			<input type="password" placeholder="Password" required/>
+			<input type="text" placeholder="Name" required value="jan" name="name"/>
+			<input type="email" placeholder="Email" required value="blahblah@gmail.com" name="email"/>
+			<input type="password" placeholder="Password" required value="password" name="password"/>
 			<button><a href="./userSignUp.html"></a>Sign Up</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
 		<form action="./landingPage.html">
 			<h1>Sign in</h1>
-			<!-- <div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div> -->
-			<!-- <span>or use your account</span> -->
-			<input type="email" placeholder="Email" required/>
-			<input type="password" placeholder="Password" required/>
+			<input type="email" placeholder="Email" required name="email"/>
+			<input type="password" placeholder="Password" required name="password"/>
 			<a href="#">Forgot your password?</a>
 			<button> <a href="./landingPage.html"></a> Sign In</button>
 		</form>
@@ -62,7 +53,7 @@
 </div>
 
 
-<script src="../userLogin.js"></script>
+<script src="./userLogin.js"></script>
 </body>
 
 </html>

@@ -1,10 +1,9 @@
-const pool = require('../db')
+const db = require('../db')
 
 class Users {
-    static async getAllUsers(){
-        const sql = `select * from "User Login"`;
-        const dbResult = await pool.query(sql)
-        return dbResult.rows
+    static getUsers(){
+        const sql = `select * from login`;
+        return db.query(sql).then(results => { return results.rows})
     }
     static async userLogin(email, password){
         const sql = `insert into login (email,password) values($1,$2)`

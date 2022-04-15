@@ -9,7 +9,7 @@ const lastName = document.getElementById('lastName').value
 createUserBtn.addEventListener('click', createUser)
 
 
- async function createUser(event){
+async function createUser(event){
 event.preventDefault()
 await fetch('http://localhost:3000/signup',{
     method: 'POST',

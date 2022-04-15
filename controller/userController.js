@@ -1,14 +1,14 @@
 const Users = require('../models/users')
 async function getAllUsers(req,res){
     try{
-        const data = await Users.getAllUsers
-        res.json({
-            data,
+        const data = await Users.getUsers()
+        return res.status(200).json({
+            data
         })
     }catch(err){
-          res.status(400) 
-          res.json()
-          
+          return res.status(400).json({
+              message: err.message
+          })
     }
  
 }
