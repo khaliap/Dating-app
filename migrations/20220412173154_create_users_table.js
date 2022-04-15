@@ -7,9 +7,9 @@ exports.up = function(knex) {
         table.integer('user_id').increments
         table.integer('location_id').increments
         table.integer('intrest_id').increments
-         table.string('first_name').notNullable
+         table.string('first_name').notNullable()
          table.string('pronouns')
-         table.integer('age').notNullable
+         table.integer('age').notNullable()
          table.string('bio')
          table.string('profile_pic')
          table.string('religion')
