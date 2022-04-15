@@ -1,5 +1,16 @@
-console.log('hi')
+const baseUrl = "http://localhost:3000"
+let token = "";
+fetch(baseUrl, {
+    headers: {
+        Authorization: `Bearer ${token}`
+    }
+}).then()
+
+
+
 const signUpButton = document.getElementById('signUp');
+const signUpForm = document.getElementById('sign-up-form')
+const signInForm = document.getElementById('sign-in-form')
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 
@@ -10,6 +21,63 @@ signUpButton.addEventListener('click', () => {
 signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
+
+signUpForm.addEventListener('submit', async function(event){
+    event.preventDefault();
+    const name = data.get("name");
+    const email = data.get("email");
+    const password = data.get("password");
+    console.log(name, email, password)
+  
+    const response = await fetch(`${baseUrl}/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      }),
+})
+
+    const responseData = await response.json();
+    token = responseData.token;
+});
+
+signInForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+  
+    const data = new FormData(event.target);
+  
+    const email = data.get("email");
+    const password = data.get("password");
+  
+    const response = await fetch(`${baseUrl}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+  
+    const responseData = await response.json();
+    token = responseData.data.token;
+  });
+
+
+
+
+
+
+
+
+
+
+
 
 $(document).ready(function (){
     

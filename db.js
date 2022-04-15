@@ -1,9 +1,22 @@
 const {Pool} = require('pg')
 
-const pool = new Pool ({
+const connectionLocal = {
     database: 'dating_app',
-    user:     'khaliaparris',
-    password: ''
-})
+    user:     'janmorales',
+    password: '',
+    host: 'localhost',
+    port: 5432
+};
 
-module.exports = pool;
+const connectionProduction = {
+    connectionString: process.env.DATABASE_URL,
+    ssl: {rejectUnauthorized: false}
+}
+
+const pool = new Pool(process.env.NODE_ENV === 'production' ? connectionProduction : connectionLocal)
+
+const query = (queryText, queryParams) => {
+    return pool.query(queryText, queryParams) //return the entire database promise
+}
+
+module.exports = {query};
