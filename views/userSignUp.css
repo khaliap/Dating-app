@@ -76,8 +76,8 @@ form .input-box span.details{
     transition: all 0.3s ease;
     
 }
-.user-details .input-box input:focus textarea:focus,
-.user-details .input-box input:valid textarea:valid{
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
   border-color: #FF4B2B;
 }
 /* textarea:focus,
@@ -113,11 +113,7 @@ textarea:valid{
  #dot-1:checked ~ .category label .one,
  #dot-2:checked ~ .category label .two,
  #dot-3:checked ~ .category label .three,
- #dot-4:checked ~ .category label .four,
- #dot-5:checked ~ .category label .five,
- #dot-6:checked ~ .category label .six,
- #dot-7:checked ~ .category label .seven,
- #dot-8:checked ~ .category label .eight
+ #dot-4:checked ~ .category label .four
  {
    background: #FF4B2B;
    border-color: #d9d9d9;
