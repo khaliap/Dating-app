@@ -9,11 +9,9 @@ const suOption = document.getElementById("sign-up-option");
 const accountInput = document.getElementsByClassName("user-info");
 const submit = document.getElementsByClassName("submit");
 //use booleans for like/pass migrations
-const like1 = document.getElementById("like1");
-const like2 = document.getElementById("like2")
-const like3 = document.getElementById("like3")
+const like = document.getElementById("like-btn-text");
 // const message = document.getElementsByClassName("btn ");
-// const pass = document.getElementsByClassName("btn-p ");
+ const pass = document.getElementById("pass-btn-text");
 // //make a delete button on extended profile page
 // //const delete = document.getEle
 
@@ -80,22 +78,22 @@ const like3 = document.getElementById("like3")
 
 //when liked button is hit, activate from like to liked
 
-like1.addEventListener('click', liked)
-like2.addEventListener('click', liked)
-like3.addEventListener('click', liked)
+like.addEventListener('click', liked)
+
 function liked(){
   //alter inner text from like --> liked
-  like1.innerText = "liked";
+  like.innerText = "liked";
+  //pass button deleted
+  
   //try to make "nah" disappear
-  console.log(like1.innerText);
 }
 
 
 //when pass is hit, activate pass to pass
-pass.addEventListener("click", passed);
-function passed() {
+ pass.addEventListener("click", passed);
+function passed(){
   //alter inner text to "passed"
-  pass.innerHTML = "passed";
+  pass.innerText = "passed";
   //add to pass migrations
 }
 
