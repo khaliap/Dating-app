@@ -23,6 +23,7 @@ const authCheck = (req, res, next) => {
 
   try {
     decodedToken = verifyToken(authToken);
+    req.userId = decodedToken.userId;
   } catch (err) {
     console.log(err.message);
     return res.status(401).json({
