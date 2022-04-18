@@ -9,9 +9,9 @@ const { home } = require("nodemon/lib/utils");
 // const signUp = document.getElementById("sign-up");
 // const suOption = document.getElementById("sign-up-option");
 const accountInput = document.getElementsByClassName("user-info");
-const submit = document.getElementsByClassName("submit");
+// const submit = document.getElementsByClassName("submit");
 //use booleans for like/pass migrations
-const homeBtn = document.getElementById("home")
+const homeBtn = document.getElementById("home");
 const like = document.getElementById("like-btn-text");
 const likesPage = document.getElementById("likesBtn")
 // const message = document.getElementsByClassName("btn ");
@@ -85,9 +85,17 @@ like.addEventListener('click', liked)
 function liked(){
   //alter inner text from like --> liked
   like.innerText = "liked";
-  //pass button deleted
-
-  //try to make "nah" disappear
+  //add to liked migrations
+  fetch(url,{
+    method:'PUT',
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      userId
+    })
+  })
+  
 }
 
 
@@ -96,14 +104,30 @@ function liked(){
 function passed(){
   //alter inner text to "passed"
   pass.innerText = "passed";
-  //add to pass migrations
-  
+  const url = 
+  //next card
+  fetch(url,{
+    method: 'GET',
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+  .then(response => response.json())
+  .then((data) =>{
+    console.log(data)
+    
+    for(let i = 0; i < data.length; i++){
+     if(!like && !pass){
+    return data[i]
+     }
+    }
+  })
 }
 
 //there is also a home button which will display the next set of prospects
 homeBtn.addEventListener('click', displayOtherProspects)
 //function for shuffle button
-function displayOtherProspects() {
+function displayOtherProspects(event) {
   event.preventDefault() 
   const url = `http://localhost:${PORT}/users/`
   //if card has no 'like' or 'pass' marked, display new
@@ -116,7 +140,8 @@ function displayOtherProspects() {
     .then((response) => response.json())
     .then((data) => {
       //take the data and show the users
- 
+      console.log(data)
+
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -126,7 +151,7 @@ function displayOtherProspects() {
 likesPage.addEventListener('click', displayLikes)
 function displayLikes(){
   //display likes url
-  //const url = `http://localhost:${PORT}/user_id/likes`
+  const url = `http://localhost:${PORT}/userId/likes`
   //if card has no 'like' or 'pass' marked, display new
   fetch(url, {
     method: "GET",
@@ -137,12 +162,47 @@ function displayLikes(){
     .then((response) => response.json())
     .then((data) => {
       //take the data and show the liked users
-     // console.log(data)
-      
+      const ol = document.body.append("ol");
+      const li = document.ol.appendChild("li");
+
+      for (let i = 0; i < data.length; i++){
+        li.innerText = data[i];
+        //display likes
+      }
     })
     .catch((error) => {
       console.error("Error:", error);
     });
 }
 
+//query would be something 
 
+// select * from likes where user_id = ?
+// select * from likes join users on users.id = likes.likeId where user_id = ?
+// select users.name, users.id, users.img from likes join users on users.id = likes.likeId where user_id = ?
+// let cardsHtml = '';
+// users.forEacH(user => {
+//   cardsHtml += `
+//     <div>${userImg}</div>
+//  `
+// })
+// insert the cardsHtml into the DOM after iteration
+// users.forEacH(user => {
+//   cardsHtml += `
+//     <div data-user="${user.id}">
+//        <img src="${userImg}" />
+//        <button class="btn-block">Block</button>
+//     </div>
+//  `
+// })
+// document.querySelectorAll('.btn-block')
+blockUser.addEventListener('click', blockUser)
+function blockUser(event){
+  event.preventDefault()
+  //added to block database 
+  //utilize userId in order to make that person blocked
+}
+
+// // add event listener that will remove that element from the DOM
+// document.querySelector('data-user="2"').remove()
+// 2 here is an example. You should look for the attribute on the element
