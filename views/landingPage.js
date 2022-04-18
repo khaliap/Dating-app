@@ -35,6 +35,9 @@ async function getPageData(event){
      randomUser = await response.json();
      
     userName.innerHTML = randomUser.name;
+    userAge.innerText = randomUser.age;
+    cityState.innerText = `${randomUser.city}, ${randomUser.state}`;
+    bio.innerText = randomUser.bio;
 
 
     // create variable for the different parts of the DOM where user ifno is needed
