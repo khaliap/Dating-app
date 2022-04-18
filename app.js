@@ -11,7 +11,21 @@ app.use(cors())
 app.use(userRouter)
 
 app.use("/users", authCheck, userRouter)
-
+app.post("/users/:id", authCheck, (req, res) =>{
+    const {
+        adjustable,
+      password,
+      age,
+      location,
+      seeking,
+      religion, 
+      pets,
+      children,
+      race,
+      smoke 
+    } = req.body;
+    
+})
 
 app.listen(PORT, ()=>{
     console.log('app started ')
