@@ -1,61 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="userLogin.css">
-	<script
-	src="https://kit.fontawesome.com/9f2d14ff15.js"
-	crossorigin="anonymous"
-  ></script>
+    <link rel="stylesheet" href="userLogin.css" />
+	<script src="https://kit.fontawesome.com/66c973f71a.js" crossorigin="anonymous"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Signika&display=swap");
+    </style>
+  </head>
+  <body>
+   
 
-</head>
-<body>
-    <h1>Sneaky Link</h1>
-    <h2>FIND YOUR NEXT SNEAKY LINK HERE </h2>
     <!-- <h3>1,000+ SINGLES</h3> -->
 
-<div class="container" id="container">
-	<div class="form-container sign-up-container">
-		<form id="sign-up-form">
-			<h1>Create Account</h1>
-			<input type="text" placeholder="Name" required value="jan" name="name"/>
-			<input type="email" placeholder="Email" required value="blahblah@gmail.com" name="email"/>
-			<input type="password" placeholder="Password" required value="password" name="password"/>
-			<button type="submit">Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form id="sign-in-form">
-			<h1>Sign in</h1>
-			<input type="email" placeholder="Email" required name="email"/>
-			<input type="password" placeholder="Password" required name="password"/>
-			<a href="#">Forgot your password?</a>
-			<button type="submit">Sign In</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details to find your next sneaky link</p>
-				<button class="ghost" id="signUp">Sign Up</button>
-			</div>
-		</div>
-	</div>
-</div>
+    <div id="body-container">
+		<div id="title-div">
+			<h1 id="mesh-title">Mesh.</h1>
+		  </div>
 
 
+      <h2 id="tag-line">Weave your way to love<i class="fa-solid fa-wave-sine"></i></h2>
+      <div class="container" id="container">
+        <div class="form-container sign-up-container">
+          <form id="sign-up-form">
+            <h1>Create Account</h1>
+            <input
+              type="text"
+              placeholder="Name"
+              required
+              value="jan"
+              name="name"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              value="blahblah@gmail.com"
+              name="email"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              value="password"
+              name="password"
+            />
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+        <div class="form-container sign-in-container">
+          <form id="sign-in-form">
+            <h1>Sign in</h1>
+            <input type="email" placeholder="Email" required name="email" />
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              name="password"
+            />
+            <a href="#">Forgot your password?</a>
+            <button type="submit">Sign In</button>
+          </form>
+        </div>
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1>Welcome Back!</h1>
+              <p>
+                To keep connected with us please login with your personal info
+              </p>
+              <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1>Hello, Friend!</h1>
+              <p>Enter your personal details to find your next sneaky link</p>
+              <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<script src="./userLogin.js"></script>
-<script scr="front-end.js"></script>
-</body>
-
+    <script src="./userLogin.js"></script>
+    <script scr="front-end.js"></script>
+  </body>
 </html>

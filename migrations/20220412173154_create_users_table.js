@@ -10,12 +10,16 @@ exports.up = function (knex) {
     table.string("password").notNullable();
     table.string("city");
     table.string("state");
-    table.integer("interest_id");
+    table.string("smoking_preference");
     table.string("pronouns");
+    table.string("looking_for");
     table.integer("age");
     table.string("bio");
     table.string("profile_pic");
+    table.string("ethnicity");
     table.string("religion");
+    table.boolean("children");
+    table.boolean("pets");
   });
 };
 

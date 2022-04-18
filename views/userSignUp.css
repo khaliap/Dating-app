@@ -8,12 +8,14 @@
   font-family: 'Poppins',sans-serif;
 }
 body{
+  background-image: url("https://static.scientificamerican.com/sciam/cache/file/C91A648C-53FA-4DE4-9FF0F0EEB484A992_source.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-blend-mode: soft-light !important;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: white
 }
 .container{
   max-width: 700px;
@@ -36,7 +38,7 @@ body{
   height: 3px;
   width: 30px;
   border-radius: 5px;
-  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #a77b05, #e6b940be);
 }
 .content form .user-details{
   display: flex;
@@ -78,7 +80,7 @@ form .input-box span.details{
 }
 .user-details .input-box input:focus,
 .user-details .input-box input:valid {
-  border-color: #FF4B2B;
+  border-color: #cc890c;
 }
 /* textarea:focus,
 textarea:valid{
@@ -115,7 +117,7 @@ textarea:valid{
  #dot-3:checked ~ .category label .three,
  #dot-4:checked ~ .category label .four
  {
-   background: #FF4B2B;
+   background: #cc890c;
    border-color: #d9d9d9;
  }
  form input[type="radio"]{
@@ -136,11 +138,11 @@ textarea:valid{
    letter-spacing: 1px;
    cursor: pointer;
    transition: all 0.3s ease;
-   background: linear-gradient(to right, #FF4B2B, #FF416C);
+   background: linear-gradient(to right, #a77b05, #e6b940be);
  }
  form .button input:hover{
   /* transform: scale(0.99); */
-  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #c5b68e, #83640ebe);
   }
  @media(max-width: 584px){
  .container{
