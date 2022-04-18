@@ -13,6 +13,7 @@ const submit = document.getElementsByClassName("submit");
 //use booleans for like/pass migrations
 const homeBtn = document.getElementById("home")
 const like = document.getElementById("like-btn-text");
+const likesPage = document.getElementById("likesBtn")
 // const message = document.getElementsByClassName("btn ");
  const pass = document.getElementById("pass-btn-text");
 
@@ -96,6 +97,7 @@ function passed(){
   //alter inner text to "passed"
   pass.innerText = "passed";
   //add to pass migrations
+  
 }
 
 //there is also a home button which will display the next set of prospects
@@ -115,6 +117,28 @@ function displayOtherProspects() {
     .then((data) => {
       //take the data and show the users
  
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+likesPage.addEventListener('click', displayLikes)
+function displayLikes(){
+  //display likes url
+  //const url = `http://localhost:${PORT}/user_id/likes`
+  //if card has no 'like' or 'pass' marked, display new
+  fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      //take the data and show the liked users
+     // console.log(data)
+      
     })
     .catch((error) => {
       console.error("Error:", error);

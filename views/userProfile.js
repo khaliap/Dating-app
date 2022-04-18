@@ -21,6 +21,7 @@ const race = document.getElementById("race").value;
 const smoke = document.getElementById("lungs").value;
 
 //buttons
+const likesPage = document.getElementById("likesBtn")
 const save = document.getElementById("save-btn");
 const cancel = document.getElementById("cancel-btn");
 const deletePage = document.getElementById("delete");
@@ -29,10 +30,7 @@ const deletePage = document.getElementById("delete");
 save.addEventListener("click", saveData);
 function saveData() {
   //save all the values of each entered component
-  email.innerText = adjustable 
-    age.innerText = age
-    location.innerText = location
-  
+ 
     const url = `http://localhost:${PORT}/users/:id`
    fetch(url, {
      method: 'PATCH',
@@ -52,6 +50,14 @@ function saveData() {
       smoke,
     })
    })
+   .then(response => response.json())
+   .then((data) => {
+     console.log(data)
+    //  email.innerText = adjustable 
+    //  age.innerText = age
+    //  location.innerText = location
+   
+   })
    
   //update data on the backend (maybe use patch method)
 }
@@ -59,7 +65,6 @@ function saveData() {
 cancel.addEventListener("click", cancelUpdate);
 function cancelUpdate() {
   //return information to previously logged information
-  
 
 }
 
@@ -72,7 +77,28 @@ function deleteUser() {
   fetch(url, {
     method: 'Delete',
   });
-
-
   
 }
+
+likesPage.addEventListener('click', displayLikes)
+function displayLikes(){
+  //display likes url
+  //const url = `http://localhost:${PORT}/users/:id/likes`
+  //if card has no 'like' or 'pass' marked, display new
+  fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      //take the data and show the liked users
+     // console.log(data)
+      
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
