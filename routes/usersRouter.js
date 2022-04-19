@@ -139,7 +139,7 @@ router.put("/registration", authCheck, async (req, res) => {
 router.get("/liked", authCheck, async (req, res) => {
   try {
     const userId = req.userId
-    const response = (await query("select users.name, users.user_id, users.profile_pic from likes inner join users on users.user_id = likes.liked_id where id = $1", [userId])).rows;
+    const response = (await query("select users.name, users.user_id, users.profile_pic, users.age, users.state from likes inner join users on users.user_id = likes.liked_id where id = $1", [userId])).rows;
     return res.status(200).json({response});
   } catch (error) {
     res.status(400).json({

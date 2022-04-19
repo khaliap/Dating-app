@@ -16,6 +16,23 @@
   color: rgb(180, 142, 35);
 }
 
+#age, #city-state{
+  font-size: 25px;    
+}
+
+.bio{
+  padding: 15px;
+  height: 400px;
+}
+#user-bio{
+  padding: 10px;
+  font-size: 22px;     
+}
+
+#looking-for, #ethnicity, #smoke{
+  font-size: 18px; 
+}
+
 :root {
     --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
   }

@@ -30,8 +30,8 @@ async function getPageData(event){
             <img src="${user.profile_pic}"...">
             <div class="card-body">
               <h5 class="card-title">${user.name}</h5>
-                 <a href="#" class="btn mr-2"></i>Like</a>
-              <a href="#" class="btn "></i>Message</a>
+              <h5 class="card-title">${user.age}</h5>
+              <h5 class="card-title">${user.state}</h5>
             </div>
             </div>
             </div>
