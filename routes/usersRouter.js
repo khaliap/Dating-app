@@ -1,9 +1,7 @@
 const bcrypt = require("bcrypt");
 const { query } = require("../db");
 const { generateToken } = require("../utils");
-const { getAllUsers } = require("../controller/userController");
 const authCheck = require("../middleware/checkAuth");
-const { user } = require("pg/lib/defaults");
 
 const router = require("express").Router();
 
@@ -28,12 +26,13 @@ router.post("/signup", async (req, res) => {
     const sql =
       "insert into users (name, email, password) values ($1, $2, $3) returning *";
 
-    const user = await query(sql, [name, email, hashedPassword]);
+    const user = (await query(sql, [name, email, hashedPassword])).rows[0];
 
-    const token = generateToken(user.id);
+    const token = await generateToken(user.user_id);
 
     return res.status(201).json({
-      token,
+      user,
+      token
     });
   } catch (err) {
     console.log(err.message);
@@ -65,11 +64,12 @@ router.post("/login", async (req, res) => {
       });
     }
 
-    const token = await generateToken();
-
+    const token = await generateToken(user.user_id);
+    // console.log(user)
     return res.status(200).json({
       data: {
-        token,
+        user,
+        token
       },
     });
   } catch (err) {
@@ -80,12 +80,11 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/likes", authCheck, async (req, res) => {
-  const userId = req.userId;
-  const { likeId } = req.body;
+  const { likeId, user_id } = req.body;
 
   try {
     await query("insert into likes (user_id, liked_id) values ($1, $2)", [
-      userId,
+      user_id,
       likeId,
     ]);
 
@@ -94,12 +93,15 @@ router.post("/likes", authCheck, async (req, res) => {
 });
 router.get("/users", authCheck, async (req, res) => {
   try {
-    const userId = req.userId; 
-    console.log(userId)
-    const response = (await query("select * from users")).rows;
-    // console.log(response);
+    // const { user_id } = req.headers
+    
+    // console.log(user_id)
+    const user_id = req.userId
+    // console.log(user_id)
+    const response = (await query("select * from users where user_id != $1", [user_id])).rows;
     const randomUser = getRandomItem(response);
-    return res.status(200).send(randomUser);
+
+    return res.status(200).json({randomUser});
   } catch (error) {
     res.status(400).json({
       message: error.message,
@@ -108,17 +110,20 @@ router.get("/users", authCheck, async (req, res) => {
 });
 
 router.put("/registration", authCheck, async (req, res) => {
-  const { state, city, age, bio } = req.body;
-  const userId = req.userId;
-  console.log(userId)
+  console.log(req.body)
+  const { state, city, age, bio} = req.body;
+  
+  const user_id = req.userId
+  console.log(user_id);
+  // debugger
 
   try {
     const sql =
       "update users set state = $1, city = $2, age = $3, bio = $4 where user_id = $5 returning *";
 
-    const user = await query(sql, [state, city, age, bio, userId]);
+    const user = await query(sql, [state, city, age, bio, user_id]);
 
-    return res.status(201).send(user)
+    return res.sendStatus(201)
   } catch (err) {
     console.log(err.message);
     res.status(500).json({

@@ -1,16 +1,13 @@
 const baseUrl = "http://localhost:3000"
 let token = window.localStorage.getItem("token") || "";
+// let userId = window.localStorage.getItem("userId")
 
 if(!token) {
-    window.location.href = ''
+  window.location.href = '/views/landingPage.html'
 }
-fetch(baseUrl, {
-    headers: {
-        Authorization: `Bearer ${token}`
-    }
-}).then()
 
 
+console.log(token)
 
 const signUpForm = document.getElementById('sign-up-form')
 
@@ -40,10 +37,7 @@ signUpForm.addEventListener('submit', async function(event){
       }),
 })
 
-    const responseData = await response.json();
-    token = responseData.token;
-    window.localStorage.setItem('token', token)
-    window.location.href = '/views/landingPage.html'
+  window.location.href = '/views/landingPage.html'
 });
 
 

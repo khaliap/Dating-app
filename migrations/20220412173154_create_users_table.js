@@ -20,6 +20,7 @@ exports.up = function (knex) {
     table.string("religion");
     table.boolean("children");
     table.boolean("pets");
+    table.string("profile_picture")
   });
 };
 

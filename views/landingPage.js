@@ -1,12 +1,13 @@
 let randomUser = null; 
 const baseUrl = "http://localhost:3000"
 
-let token = window.localStorage.getItem("token") || "";
-
+let token = window.localStorage.getItem("token") || null;
+let userId = window.localStorage.getItem("userId")
+console.log(userId)
 if(!token) {
-    window.location.href = ''
-    //redirect to login page
+    window.location.href = '/views/userLogin.html';
 }
+
 function getById(string){
     return document.getElementById(string)
 }
@@ -29,11 +30,12 @@ async function getPageData(event){
         method: 'GET',
         headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            // user_id: userId,
         }
      })
-     randomUser = await response.json();
-     
+     const {randomUser} = await response.json();
+     console.log(randomUser)
     userName.innerHTML = randomUser.name;
     userAge.innerText = randomUser.age;
     cityState.innerText = `${randomUser.city}, ${randomUser.state}`;
@@ -56,7 +58,8 @@ async function handleLikeBtnClick(event) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            likeId: randomUser.id
+            likeId: randomUser.id,
+            user_id: userId
         })
     })
 
