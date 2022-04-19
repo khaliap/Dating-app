@@ -17,13 +17,20 @@ const cityState = getById('city-state')
 const bio = getById('user-bio')
 const ethnicity = getById('ethnicity')
 const religion = getById('religion')
-const smoke = getById('smokes')
+const smoke = getById('smoke')
 const lookingFor = getById('looking-for')
+const pic = getById("profile-pic")
 
 //request to backend GET to random_user
 //returns a random user thats not logged in 
 window.addEventListener('DOMContentLoaded', getPageData)
-
+function smokes(result){
+    if(result){
+        return 'Smoker'
+    }else{
+        return 'Non Smoker'
+    }
+}
 async function getPageData(event){
     event.preventDefault();
      const response = await fetch(`${baseUrl}/users`, {
@@ -36,10 +43,15 @@ async function getPageData(event){
      })
      const {randomUser} = await response.json();
      console.log(randomUser)
+    pic.src = randomUser.profile_pic
     userName.innerHTML = randomUser.name;
     userAge.innerText = randomUser.age;
     cityState.innerText = `${randomUser.city}, ${randomUser.state}`;
     bio.innerText = randomUser.bio;
+    lookingFor.innerText = randomUser.looking_for;
+    ethnicity.innerText = randomUser.ethnicity;
+    const result = randomUser.smoking_preference
+    smoke.innerText = smokes(result);
 
 
     // create variable for the different parts of the DOM where user ifno is needed
