@@ -27,28 +27,21 @@
       margin-left: 10px;
   }
   .card-container{
+    display: flex;
+    flex-wrap:wrap ;
+    flex-direction:row;
+    justify-content: space-evenly;
    padding-top: 100px;
    margin-left: 20px;
   }
-  .search-filter{   
-      display: flex;
-      text-align: center;
-      margin-top: 50px;
-      border: 2px solid;
-      color: #0000008c;
-      margin-left: 50px;
-      margin-right: 113px ;
-      justify-content: center;
-      padding-bottom: 20px;
-      padding-top: 30px;
-
+ 
     
-  }
-  .filter-menu{
+
+ .card-html-container{
   display: flex;
-     margin-left: 480px;
-   
-  }
+  flex-wrap: wrap;
+  flex-direction: column;
+ }
   
   .card {
     background: rgb(39, 38, 38);
@@ -69,9 +62,7 @@
       
     
   }
-  .filter-dropdwn > li{
-    border: 1px solid #0000008c;
-  }
+
   
   .btn {
     border: 5px solid;
@@ -98,28 +89,8 @@
 }
 
 
-.filter-btn{
-  height: 30px;
-  /* display: flex; */
-  align-items: center;
-  color: #0000008c;
-  border: 2px solid;
-  background-color: transparent;
-  /* margin-left: 20px; */
-  /* margin-top: 3px; */
-  cursor: pointer;
-  text-decoration: underline;
-  margin-left: 20px;
-}
-/* .filter-btn:hover{
-  background-color: #DD2476;
-} */
-.filter-dropdwn{
-  background-color: #0000008c;
-  border: 1px solid white;
-  
- 
-}
+
+
 
 
 ul {     

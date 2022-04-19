@@ -34,7 +34,10 @@ async function getPageData(event){
               <a href="#" class="btn "></i>Message</a>
             </div>
             </div>
+            </div>
         `
     })
+    
+
     cardContainer.innerHTML = createCardHtml;
 }
