@@ -5,10 +5,15 @@
     transform: translateX(-50%);
 }
 
-#title-app {
-    color: aliceblue;
-    font-size: 20px;
-    width: 90px;
+#title-app{
+  font-size: 30px;  
+  font-family: 'DM Serif Display', serif;
+	color: rgb(241, 199, 82);
+	text-shadow: 2px 1px #3a3a3a;
+}
+
+#home-btn, #home-icon{
+  color: rgb(180, 142, 35);
 }
 
 :root {

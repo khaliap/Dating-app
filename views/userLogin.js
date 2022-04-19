@@ -1,14 +1,15 @@
 const baseUrl = "http://localhost:3000"
 let token = window.localStorage.getItem("token") || "";
 
-if(!token) {
-    window.location.href = ''
-}
-fetch(baseUrl, {
-    headers: {
-        Authorization: `Bearer ${token}`
-    }
-}).then()
+
+// if(!token) {
+//     window.location.href = ''
+// }
+// fetch(baseUrl, {
+//     headers: {
+//         Authorization: `Bearer ${token}`
+//     }
+// }).then()
 
 
 
@@ -50,7 +51,9 @@ signUpForm.addEventListener('submit', async function(event){
 
     const responseData = await response.json();
     token = responseData.token;
+    userId = responseData.user.user_id
     window.localStorage.setItem('token', token)
+    window.localStorage.setItem('userId', userId)
     window.location.href = '/views/userSignUp.html'
 });
 
@@ -79,10 +82,11 @@ signInForm.addEventListener("submit", async function (event) {
         const  { message } = responseData;
         console.log(message)   
     } else {
-    
     console.log(responseData)
     token = responseData.data.token;
+    userId = responseData.data.user.user_id
     window.localStorage.setItem('token', token)
+    window.localStorage.setItem('userId', userId)
     window.location.href = '/views/landingPage.html';
     }  
 });

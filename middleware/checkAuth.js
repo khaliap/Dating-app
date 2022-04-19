@@ -1,6 +1,6 @@
 const { verifyToken } = require("../utils");
 
-const authCheck = (req, res, next) => {
+const authCheck = async (req, res, next) => {
   const headers = req.headers;
 
   const authHeader = headers.authorization;
@@ -22,8 +22,10 @@ const authCheck = (req, res, next) => {
   let decodedToken;
 
   try {
-    decodedToken = verifyToken(authToken);
-    req.userId = decodedToken.userId;
+    decodedToken = await verifyToken(authToken);
+    // console.log("decoded token",decodedToken)
+    req.userId = decodedToken.userId
+    // debugger
   } catch (err) {
     console.log(err.message);
     return res.status(401).json({
