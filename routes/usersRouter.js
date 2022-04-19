@@ -80,16 +80,20 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/likes", authCheck, async (req, res) => {
-  const { likeId, user_id } = req.body;
-
+  const { likeId } = req.body;
+  const user_id = req.userId
   try {
-    await query("insert into likes (user_id, liked_id) values ($1, $2)", [
+    await query("insert into likes (id, liked_id) values ($1, $2)", [
       user_id,
       likeId,
     ]);
 
     res.sendStatus(200);
-  } catch {}
+  } catch (error) {
+    res.status(400).json({
+      message: error.message,
+    });
+  }
 });
 router.get("/users", authCheck, async (req, res) => {
   try {
@@ -132,6 +136,29 @@ router.put("/registration", authCheck, async (req, res) => {
   }
 });
 
-router.delete("/users/:id");
+router.get("/liked", authCheck, async (req, res) => {
+  try {
+    const userId = req.userId
+    const response = (await query("select users.name, users.user_id, users.profile_pic from likes inner join users on users.user_id = likes.liked_id where id = $1", [userId])).rows;
+    return res.status(200).json({response});
+  } catch (error) {
+    res.status(400).json({
+      message: error.message,
+    });
+  }
+});
+
+router.get("/profile", authCheck, async (req, res) => {
+  try {
+    const userId = req.userId
+    const response = (await query("select * from users where user_id = $1", [userId])).rows[0];
+    console.log(response)
+    return res.status(200).json({response});
+  } catch (error) {
+    res.status(400).json({
+      message: error.message,
+    });
+  }
+})
 
 module.exports = router;
