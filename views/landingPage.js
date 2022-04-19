@@ -1,9 +1,8 @@
-let randomUser = null; 
+let currRandomUser = null; 
 const baseUrl = "http://localhost:3000"
 
 let token = window.localStorage.getItem("token") || null;
-let userId = window.localStorage.getItem("userId")
-console.log(userId)
+
 if(!token) {
     window.location.href = '/views/userLogin.html';
 }
@@ -20,6 +19,8 @@ const religion = getById('religion')
 const smoke = getById('smoke')
 const lookingFor = getById('looking-for')
 const pic = getById("profile-pic")
+const likeBtn = getById("like-btn")
+const passBtn = getById("pass-btn")
 
 //request to backend GET to random_user
 //returns a random user thats not logged in 
@@ -42,6 +43,7 @@ async function getPageData(event){
         }
      })
      const {randomUser} = await response.json();
+     currRandomUser = randomUser.user_id;
      console.log(randomUser)
     pic.src = randomUser.profile_pic
     userName.innerHTML = randomUser.name;
@@ -52,16 +54,13 @@ async function getPageData(event){
     ethnicity.innerText = randomUser.ethnicity;
     const result = randomUser.smoking_preference
     smoke.innerText = smokes(result);
-
-
-    // create variable for the different parts of the DOM where user ifno is needed
-
-    // update parts of the DOM to show user's info
 }
 
-//like button - another fetch call to likes route - post 
+likeBtn.addEventListener("click", handleLikeBtnClick)
+passBtn.addEventListener("click", getPageData)
 
 async function handleLikeBtnClick(event) {
+    event.preventDefault()
     // update the button show that it is liked
     const response = await fetch(`${baseUrl}/likes`, {
         method: 'POST',
@@ -70,13 +69,11 @@ async function handleLikeBtnClick(event) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            likeId: randomUser.id,
-            user_id: userId
+            likeId: currRandomUser
         })
     })
-
-    // do somthing based on if request is successful or not
+    
    if(response.ok) {
-       // fetch a new user and rerender the info
+       getPageData(event);
    }
 }
