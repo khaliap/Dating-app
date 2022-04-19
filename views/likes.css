@@ -30,6 +30,12 @@
    padding-top: 100px;
    margin-left: 20px;
   }
+
+  #card-html-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
   .search-filter{   
       display: flex;
       text-align: center;
