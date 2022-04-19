@@ -14,7 +14,7 @@ exports.up = function (knex) {
     table.string("pronouns");
     table.string("looking_for");
     table.integer("age");
-    table.string("bio");
+    table.text("bio");
     table.string("profile_pic");
     table.string("ethnicity");
     table.string("religion");
