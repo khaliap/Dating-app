@@ -2,7 +2,7 @@ const {Pool} = require('pg')
 
 const connectionLocal = {
     database: 'dating_app',
-    user:     'janmorales',
+    user:     'khaliaparris',
     password: '',
     host: 'localhost',
     port: 5432

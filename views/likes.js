@@ -34,7 +34,10 @@ async function getPageData(event){
               <h5 class="card-title">${user.state}</h5>
             </div>
             </div>
+            </div>
         `
     })
+    
+
     cardContainer.innerHTML = createCardHtml;
 }
