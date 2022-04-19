@@ -115,7 +115,7 @@ router.get("/users", authCheck, async (req, res) => {
 
 router.put("/registration", authCheck, async (req, res) => {
   console.log(req.body)
-  const { state, city, age, bio} = req.body;
+  const { state, city, age, bio, picture} = req.body;
   
   const user_id = req.userId
   console.log(user_id);
@@ -123,9 +123,9 @@ router.put("/registration", authCheck, async (req, res) => {
 
   try {
     const sql =
-      "update users set state = $1, city = $2, age = $3, bio = $4 where user_id = $5 returning *";
+      "update users set state = $1, city = $2, age = $3, bio = $4, profile_pic = $5 where user_id = $6 returning *";
 
-    const user = await query(sql, [state, city, age, bio, user_id]);
+    const user = await query(sql, [state, city, age, bio, picture, user_id]);
 
     return res.sendStatus(201)
   } catch (err) {

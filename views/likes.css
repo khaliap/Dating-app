@@ -17,11 +17,11 @@
 }
 
 :root {
-    --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
+    /* --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important; */
   }
   
   body {
-    background: rgb(255, 252, 252);
+    background: rgb(0, 0, 0);
   }
   h4{
       margin-left: 10px;
@@ -44,7 +44,7 @@
   
   .card {
     background: rgb(39, 38, 38);
-    border: 1px solid #964e4e;
+    border: 2px solid rgb(241, 199, 82);
     color: rgba(250, 250, 250, 0.8);
     margin-bottom: 2rem;
   }

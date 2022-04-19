@@ -16,7 +16,7 @@ signUpForm.addEventListener('submit', async function(event){
     event.preventDefault();
 
     const data = new FormData(event.target);
-
+const picture = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png'
     const state = data.get("state");
     const city = data.get("city");
     const age = data.get("age");
@@ -33,7 +33,8 @@ signUpForm.addEventListener('submit', async function(event){
         state,
         city,
         age,
-        bio
+        bio,
+        picture
       }),
 })
 

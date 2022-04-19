@@ -48,7 +48,7 @@ async function getPageData(event){
     pic.src = randomUser.profile_pic
     userName.innerHTML = randomUser.name;
     userAge.innerText = randomUser.age;
-    cityState.innerText = `${randomUser.city}, ${randomUser.state}`;
+    cityState.innerText = `${randomUser.city} ${randomUser.state}`;
     bio.innerText = randomUser.bio;
     lookingFor.innerText = randomUser.looking_for;
     ethnicity.innerText = randomUser.ethnicity;

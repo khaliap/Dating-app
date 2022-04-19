@@ -15,7 +15,9 @@
 #home-btn, #home-icon{
   color: rgb(180, 142, 35);
 }
-
+#header{
+  color: white;
+}
 #age, #city-state{
   font-size: 25px;    
 }
@@ -38,7 +40,8 @@
   }
   
   body {
-    background: rgb(255, 252, 252) !important;
+    background: rgb(0, 0, 0) !important;
+   
     /* display: flex; */
   }
   /* .body-container{
